@@ -16,11 +16,11 @@
   --line-2: #d0cbbf;
   --line-3: #b4ac9b;
 
-  /* 文字 — 微调冷调以匹配冷色玻璃 */
-  --text-1: #161b22;       /* 冷炭黑主文字 */
-  --text-2: #3a4250;       /* 次级冷深灰 */
-  --text-3: #6b7280;       /* 注释冷灰 */
-  --text-4: #9aa3b0;       /* 最浅冷灰 */
+  /* 文字 — 暖黑/暖灰，配合纯白玻璃 */
+  --text-1: #1a1917;       /* 炭黑主文字 */
+  --text-2: #4a4742;       /* 次级深灰 */
+  --text-3: #8a857c;       /* 注释灰 */
+  --text-4: #b8b2a7;       /* 最浅灰 */
 
   /* 强调色 — 古铜金（保持不变） */
   --accent: #a8844f;
@@ -92,16 +92,16 @@ body::before {
   z-index: 1;
   max-width: 1400px;
   margin: var(--canvas-margin-y) auto;
-  background: rgba(225, 232, 240, 0.82);
-  backdrop-filter: blur(20px) saturate(125%);
-  -webkit-backdrop-filter: blur(20px) saturate(125%);
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(22px) saturate(130%);
+  -webkit-backdrop-filter: blur(22px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: var(--canvas-radius);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.65),
-    inset 0 -30px 60px -20px rgba(120, 140, 165, 0.35),
-    0 30px 70px -20px rgba(0, 0, 0, 0.55),
-    0 10px 30px -10px rgba(0, 0, 0, 0.4);
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -30px 60px -20px rgba(180, 190, 205, 0.25),
+    0 30px 70px -20px rgba(0, 0, 0, 0.5),
+    0 10px 30px -10px rgba(0, 0, 0, 0.35);
   overflow: hidden;
 }
 
@@ -435,9 +435,9 @@ button {
   z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgba(18, 28, 42, 0.45) 0%,
-    rgba(18, 28, 42, 0.55) 40%,
-    rgba(14, 22, 34, 0.78) 100%
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(255, 255, 255, 0.62) 100%
   );
   backdrop-filter: blur(10px) saturate(115%);
   -webkit-backdrop-filter: blur(10px) saturate(115%);
@@ -448,8 +448,8 @@ button {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(to right, rgba(18, 28, 42, 0.6), transparent 25%, transparent 75%, rgba(18, 28, 42, 0.6)),
-    radial-gradient(120% 120% at 50% 30%, transparent 40%, rgba(10, 16, 26, 0.55) 100%);
+    linear-gradient(to right, rgba(255, 255, 255, 0.45), transparent 25%, transparent 75%, rgba(255, 255, 255, 0.45)),
+    radial-gradient(120% 120% at 50% 30%, transparent 40%, rgba(200, 205, 215, 0.35) 100%);
   pointer-events: none;
 }
 
@@ -468,15 +468,18 @@ button {
   position: absolute;
   inset: -8% -6%;
   z-index: -1;
-  background: rgba(22, 34, 52, 0.42);
-  backdrop-filter: blur(18px) saturate(130%);
-  -webkit-backdrop-filter: blur(18px) saturate(130%);
-  border: 1px solid rgba(165, 195, 225, 0.22);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.12) 45%, rgba(255, 255, 255, 0.28) 100%),
+    rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 22px;
   box-shadow:
-    inset 0 1px 0 rgba(200, 225, 255, 0.35),
-    inset 0 -20px 50px rgba(8, 14, 24, 0.45),
-    0 24px 60px rgba(6, 12, 22, 0.5);
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 14px 30px -10px rgba(255, 255, 255, 0.6),
+    inset 0 -20px 50px rgba(160, 170, 185, 0.3),
+    0 24px 60px rgba(20, 30, 50, 0.35);
   pointer-events: none;
 }
 
@@ -485,7 +488,7 @@ button {
   font-size: 11px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: #d8b878;
+  color: var(--accent-3);
   margin-bottom: 48px;
   opacity: 0;
   animation: fadeUp 1.4s var(--ease-out) 0.3s forwards;
@@ -498,11 +501,10 @@ button {
   font-weight: 300;
   line-height: 0.95;
   letter-spacing: -0.02em;
-  color: #f2f6fb;
+  color: var(--text-1);
   margin-bottom: 28px;
   opacity: 0;
   animation: fadeUp 1.4s var(--ease-out) 0.5s forwards;
-  text-shadow: 0 2px 24px rgba(6, 12, 22, 0.45);
 }
 
 .hero-title .name-cn {
@@ -515,7 +517,7 @@ button {
   font-size: 0.32em;
   font-weight: 400;
   letter-spacing: 0.45em;
-  color: #b9c8da;
+  color: var(--text-3);
   margin-top: 14px;
   text-transform: uppercase;
   font-family: var(--font-mono);
@@ -527,7 +529,7 @@ button {
   font-weight: 300;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: #d4e0ee;
+  color: var(--text-2);
   margin-bottom: 20px;
   opacity: 0;
   animation: fadeUp 1.4s var(--ease-out) 0.7s forwards;
@@ -536,7 +538,7 @@ button {
 .hero-period {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: #9fb1c6;
+  color: var(--text-3);
   letter-spacing: 0.2em;
   opacity: 0;
   animation: fadeUp 1.4s var(--ease-out) 0.9s forwards;
@@ -630,12 +632,12 @@ button {
   z-index: 1;
   background: linear-gradient(
     to right,
-    rgba(20, 30, 44, 0.8) 0%,
-    rgba(20, 30, 44, 0.68) 50%,
-    rgba(20, 30, 44, 0.52) 100%
+    rgba(255, 255, 255, 0.78) 0%,
+    rgba(255, 255, 255, 0.66) 50%,
+    rgba(255, 255, 255, 0.5) 100%
   );
-  backdrop-filter: blur(12px) saturate(120%);
-  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  backdrop-filter: blur(12px) saturate(125%);
+  -webkit-backdrop-filter: blur(12px) saturate(125%);
 }
 
 .statement-inner {
@@ -656,21 +658,20 @@ button {
   font-size: clamp(28px, 3.6vw, 48px);
   font-weight: 300;
   line-height: 1.35;
-  color: #f1f5fb;
+  color: var(--text-1);
   letter-spacing: -0.01em;
   margin: 32px 0 48px;
-  text-shadow: 0 2px 20px rgba(6, 12, 22, 0.4);
 }
 
 .statement-headline .mark {
-  color: #d8b878;
+  color: var(--accent);
   font-weight: 400;
 }
 
 .statement-body {
   font-size: 16px;
   line-height: 2;
-  color: #cdd9e8;
+  color: var(--text-2);
   max-width: 540px;
   margin-bottom: 56px;
 }
@@ -714,9 +715,9 @@ button {
    About 关于
    ============================================ */
 .about {
-  background: rgba(217, 225, 235, 0.7);
-  backdrop-filter: blur(14px) saturate(120%);
-  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
   position: relative;
 }
 
@@ -858,9 +859,9 @@ button {
    Projects 精选项目 — 编辑式排版
    ============================================ */
 .projects {
-  background: rgba(210, 219, 230, 0.66);
-  backdrop-filter: blur(14px) saturate(120%);
-  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
   position: relative;
 }
 
@@ -1247,9 +1248,9 @@ button {
    Gongzhi 共治空间
    ============================================ */
 .gongzhi {
-  background: rgba(217, 225, 235, 0.7);
-  backdrop-filter: blur(14px) saturate(120%);
-  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
 }
 
 .gongzhi-grid {
@@ -1313,9 +1314,9 @@ button {
    ============================================ */
 .contact {
   min-height: 90vh;
-  background: rgba(210, 219, 230, 0.66);
-  backdrop-filter: blur(14px) saturate(120%);
-  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
   display: flex;
   flex-direction: column;
   justify-content: center;
