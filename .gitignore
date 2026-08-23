@@ -1,0 +1,6 @@
+# 仅托管静态站点，排除无关元数据
+.spark/
+.workbuddy/
+node_modules/
+*.log
+.DS_Store
