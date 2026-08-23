@@ -95,7 +95,7 @@
 .modal-hero-frame {
   position: absolute;
   inset: 18px;
-  border: 1px solid rgba(246, 243, 238, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   pointer-events: none;
 }
 
@@ -231,14 +231,14 @@
 .modal-gallery-item .g-frame {
   position: absolute;
   inset: 10px;
-  border: 1px solid rgba(246, 243, 238, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   pointer-events: none;
   transition: border-color 0.3s ease, inset 0.4s var(--ease-out);
 }
 
 .modal-gallery-item:hover .g-frame {
   inset: 8px;
-  border-color: rgba(168, 132, 79, 0.5);
+  border-color: rgba(199, 204, 212, 0.55);
 }
 
 /* 弹窗底部按钮 */

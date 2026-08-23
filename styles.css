@@ -22,12 +22,12 @@
   --text-3: #8a857c;       /* 注释灰 */
   --text-4: #b8b2a7;       /* 最浅灰 */
 
-  /* 强调色 — 古铜金（保持不变） */
-  --accent: #a8844f;
-  --accent-2: #c9a26a;
-  --accent-3: #8a6a3a;
-  --accent-dim: rgba(168, 132, 79, 0.12);
-  --accent-line: rgba(168, 132, 79, 0.35);
+  /* 强调色 — 银色 / 金属光泽（替代古铜金） */
+  --accent: #c7ccd4;        /* 银 */
+  --accent-2: #e8ecf2;      /* 亮银高光 */
+  --accent-3: #9aa3ad;      /* 暗银 */
+  --accent-dim: rgba(199, 204, 212, 0.12);
+  --accent-line: rgba(199, 204, 212, 0.4);
 
   /* 画布容器 */
   --canvas-radius: 28px;
@@ -53,6 +53,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* 银色金属光泽文字 — 替代原来的金黄色文字 */
+.silver {
+  color: #e8ecf2;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #cfd6df 38%,
+    #9aa3ad 62%,
+    #e8ecf2 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
 }
 
 html {
@@ -87,15 +104,23 @@ body::before {
 /* ============================================
    背景：暗调展览海报拼接（两侧黑边垫图）
    ============================================ */
+.app-root {
+  position: relative;
+}
+
 .ambient-collage {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-auto-rows: 34vh;
   gap: 0;
-  background: var(--bg-outer);
+  background-color: var(--bg-outer);
+  background-image: url(posters/海报 (1).jpg);
+  background-size: 33.333% auto;
+  background-repeat: repeat;
+  background-position: top left;
   overflow: hidden;
 }
 
@@ -112,13 +137,13 @@ body::before {
   filter: brightness(0.55) saturate(0.8) blur(0);
 }
 
-/* 暗色叠层 — 让整体偏暗、被画布吸收 */
+/* 暗色叠层 — 轻量，保证暗调海报在滚动中持续可见 */
 .ambient-scrim {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(120% 90% at 50% 50%, rgba(0, 0, 0, 0.0) 0%, rgba(0, 0, 0, 0.55) 100%),
-    linear-gradient(180deg, rgba(15, 17, 22, 0.35) 0%, rgba(15, 17, 22, 0.25) 50%, rgba(10, 12, 16, 0.45) 100%);
+    radial-gradient(130% 100% at 50% 50%, rgba(10, 12, 16, 0.0) 35%, rgba(8, 10, 14, 0.5) 100%),
+    linear-gradient(180deg, rgba(12, 14, 18, 0.3) 0%, rgba(12, 14, 18, 0.2) 50%, rgba(8, 10, 14, 0.4) 100%);
   pointer-events: none;
 }
 
@@ -468,11 +493,12 @@ button {
 .hero {
   position: relative;
   height: calc(100vh - var(--canvas-margin-y) * 2);
-  min-height: 600px;
+  min-height: 640px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding: 6vh 0;
 }
 
 .hero-image {
@@ -547,7 +573,12 @@ button {
   font-size: 11px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: var(--accent-3);
+  color: #e8ecf2;
+  background: linear-gradient(180deg, #ffffff 0%, #cfd6df 40%, #9aa3ad 70%, #e8ecf2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
   margin-bottom: 48px;
   opacity: 0;
   animation: fadeUp 1.4s var(--ease-out) 0.3s forwards;
@@ -556,12 +587,12 @@ button {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(48px, 9vw, 130px);
+  font-size: clamp(40px, 6.5vw, 92px);
   font-weight: 300;
-  line-height: 0.95;
+  line-height: 1.02;
   letter-spacing: -0.02em;
   color: var(--text-1);
-  margin-bottom: 28px;
+  margin-bottom: 36px;
   opacity: 0;
   animation: fadeUp 1.4s var(--ease-out) 0.5s forwards;
 }
@@ -723,8 +754,13 @@ button {
 }
 
 .statement-headline .mark {
-  color: var(--accent);
   font-weight: 400;
+  color: #e8ecf2;
+  background: linear-gradient(180deg, #ffffff 0%, #cfd6df 40%, #9aa3ad 70%, #e8ecf2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
 .statement-body {
@@ -1006,14 +1042,14 @@ button {
 .project-image-wrap .frame {
   position: absolute;
   inset: 16px;
-  border: 1px solid rgba(246, 243, 238, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   pointer-events: none;
   transition: inset 0.6s var(--ease-out);
 }
 
 .project-item:hover .project-image-wrap .frame {
   inset: 12px;
-  border-color: rgba(168, 132, 79, 0.6);
+  border-color: rgba(199, 204, 212, 0.55);
 }
 
 .project-image-number {
@@ -1133,8 +1169,8 @@ button {
   z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgba(246, 243, 238, 0.92) 0%,
-    rgba(246, 243, 238, 0.85) 100%
+    rgba(238, 241, 246, 0.92) 0%,
+    rgba(232, 236, 242, 0.85) 100%
   );
 }
 
@@ -1177,18 +1213,18 @@ button {
 }
 
 .activity-item {
-  background: rgba(28, 42, 58, 0.55);
+  background: rgba(225, 230, 237, 0.55);
   backdrop-filter: blur(14px) saturate(120%);
   -webkit-backdrop-filter: blur(14px) saturate(120%);
   padding: 36px 28px;
   transition: background 0.4s ease;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(150, 180, 210, 0.18);
+  border: 1px solid rgba(199, 204, 212, 0.4);
 }
 
 .activity-item:hover {
-  background: rgba(34, 50, 70, 0.72);
+  background: rgba(232, 236, 242, 0.72);
 }
 
 .activity-item::before {
@@ -1211,7 +1247,7 @@ button {
 .activity-icon {
   width: 28px;
   height: 28px;
-  color: var(--accent);
+  color: var(--accent-3);
   margin-bottom: 20px;
 }
 
@@ -1224,20 +1260,20 @@ button {
   font-family: var(--font-display);
   font-size: 17px;
   font-weight: 500;
-  color: #eef3f8;
+  color: var(--text-1);
   margin-bottom: 8px;
 }
 
 .activity-desc {
   font-size: 13px;
-  color: #aebccb;
+  color: var(--text-2);
   line-height: 1.7;
 }
 
 .activity-num {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: #7d90a4;
+  color: var(--text-3);
   letter-spacing: 0.2em;
   position: absolute;
   top: 20px;
@@ -1341,7 +1377,7 @@ button {
 .gongzhi-image .frame {
   position: absolute;
   inset: 14px;
-  border: 1px solid rgba(246, 243, 238, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   pointer-events: none;
 }
 
