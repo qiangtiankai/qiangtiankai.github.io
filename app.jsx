@@ -29,6 +29,21 @@ function App() {
 
   return (
     <div>
+      {/* 背景：暗调展览海报拼接 + 玻璃高光 */}
+      <div className="ambient-collage" aria-hidden="true">
+        <div className="ambient-tile" style={{ backgroundImage: 'url(https://aka.doubaocdn.com/s/gWxpkjNgX5)' }} />
+        <div className="ambient-tile" style={{ backgroundImage: 'url(https://aka.doubaocdn.com/s/xmuyGNZVho)' }} />
+        <div className="ambient-tile" style={{ backgroundImage: 'url(https://aka.doubaocdn.com/s/jtNqCh8idx)' }} />
+        <div className="ambient-tile" style={{ backgroundImage: 'url(https://aka.doubaocdn.com/s/LkuDSjeOFm)' }} />
+        <div className="ambient-tile" style={{ backgroundImage: 'url(https://aka.doubaocdn.com/s/AfH5NefCRF)' }} />
+        <div className="ambient-tile" style={{ backgroundImage: 'url(https://aka.doubaocdn.com/s/C3g0BHTjqp)' }} />
+        <div className="ambient-tile" style={{ backgroundImage: 'url(https://aka.doubaocdn.com/s/df3GiCQH0W)' }} />
+        <div className="ambient-tile" style={{ backgroundImage: 'url(https://aka.doubaocdn.com/s/a64X8A5HDK)' }} />
+        <div className="ambient-tile" style={{ backgroundImage: 'url(https://aka.doubaocdn.com/s/bMc6BD8kMk)' }} />
+        <div className="ambient-scrim" />
+        <div className="ambient-grain" />
+      </div>
+
       <div className="page-canvas">
         <Navbar />
         <main>
