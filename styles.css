@@ -120,22 +120,30 @@ body::before {
   position: relative;
 }
 
+/* 全屏 fixed 海报拼贴：左 1 列 + 右 1 列海报，中间列宽等于画布容器 */
 .ambient-collage {
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 34vh;
+  grid-template-columns: 1fr min(1400px, 100% - 2 * var(--canvas-margin-x)) 1fr;
+  grid-auto-rows: 28vh;
   gap: 0;
   background-color: var(--bg-outer);
-  background-image: url(posters/海报 (1).jpg);
-  background-size: 33.333% auto;
-  background-repeat: repeat;
-  background-position: top left;
+  pointer-events: none;
   overflow: hidden;
 }
 
+/* 透明中间列 — 让白色画布背后的玻璃透出来 */
+.ambient-collage::before {
+  content: '';
+  grid-column: 2;
+  grid-row: 1 / -1;
+  background: transparent;
+  pointer-events: none;
+}
+
+/* 海报：奇数放左列，偶数放右列 */
 .ambient-tile {
   background-size: cover;
   background-position: center;
@@ -143,23 +151,27 @@ body::before {
   filter: brightness(0.62) saturate(0.8) blur(0.4px);
   transform: scale(1.04);
   transition: filter 0.8s ease, transform 12s ease-in-out;
+  grid-column: span 1;
 }
+
+.ambient-tile:nth-child(2n+1) { grid-column: 1; }
+.ambient-tile:nth-child(2n)   { grid-column: 3; }
 
 .ambient-collage:hover .ambient-tile {
   filter: brightness(0.78) saturate(0.95) blur(0);
 }
 
-/* 暗色叠层 — 轻量，保证暗调海报在滚动中持续可见 */
+/* 暗色叠层 — 只盖在中间列（画布背后），让左右两侧海报保持清晰 */
 .ambient-scrim {
-  position: absolute;
-  inset: 0;
+  grid-column: 2;
+  grid-row: 1 / -1;
   background:
     radial-gradient(130% 100% at 50% 50%, rgba(10, 12, 16, 0.0) 40%, rgba(8, 10, 14, 0.32) 100%),
     linear-gradient(180deg, rgba(12, 14, 18, 0.15) 0%, rgba(12, 14, 18, 0.08) 50%, rgba(8, 10, 14, 0.22) 100%);
   pointer-events: none;
 }
 
-/* 颗粒纹理 — 保持深色质感 */
+/* 颗粒纹理 — 全画布 ambient 噪声，覆盖整个 ambient-collage */
 .ambient-grain {
   position: absolute;
   inset: 0;
@@ -1557,6 +1569,11 @@ button {
     --canvas-margin-x: 24px;
     --canvas-margin-y: 20px;
     --canvas-radius: 20px;
+  }
+
+  /* 视口太窄时不显示两侧海报背景，避免遮挡画布 */
+  .ambient-collage {
+    display: none;
   }
 
   .navbar-nav {
