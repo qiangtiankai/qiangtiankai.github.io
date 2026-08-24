@@ -120,46 +120,27 @@ body::before {
   position: relative;
 }
 
-/* 全屏 fixed 海报平铺背景层 — 统一位置/缩放/对齐，半透明不抢上层 */
+/* 全屏 fixed 海报平铺网格背景层 — 26 张一一对应铺满整屏，半透明不抢上层 */
 .ambient-collage {
   position: fixed;
   inset: 0;
   z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 20vh;
+  gap: 0;
   pointer-events: none;
   overflow: hidden;
   background-color: var(--bg-outer);
-  background-image:
-    url("posters/另一个同一个海报.jpg"),
-    url("posters/向后翻腾三周半海报.png"),
-    url("posters/喃喃海报.png"),
-    url("posters/失所的物象 Dislocated Life海报.jpg"),
-    url("posters/展览Variatione.M.L-X海报.jpg"),
-    url("posters/工业牧歌 —— 现代性、乡愁与当代回响海报.jpg"),
-    url("posters/感官媒介与多媒体海报宽145高274.jpg"),
-    url("posters/梦江水海报.jpg"),
-    url("posters/海报 (1).jpg"),
-    url("posters/海报 (10).jpg"),
-    url("posters/海报 (11).jpg"),
-    url("posters/海报 (12).jpg"),
-    url("posters/海报 (13).jpg"),
-    url("posters/海报 (2).jpg"),
-    url("posters/海报 (3).jpg"),
-    url("posters/海报 (4).jpg"),
-    url("posters/海报 (5).jpg"),
-    url("posters/海报 (6).jpg"),
-    url("posters/海报 (7).jpg"),
-    url("posters/海报 (8).jpg"),
-    url("posters/海报 (9).jpg"),
-    url("posters/海报（总.jpg"),
-    url("posters/猫门美学大赏海报.png"),
-    url("posters/终版海报.jpg"),
-    url("posters/跛子日志与革命书海报.png"),
-    url("posters/镜中我 —— 心理学与当代艺术跨学科展览海报.jpg");
-  background-size: 40vw auto;
-  background-repeat: repeat;
-  background-position: top left;
-  filter: brightness(0.5) saturate(0.7) blur(1.5px);
-  opacity: 0.85;
+}
+
+/* 每个 tile 一张海报，cover 填充不重叠 */
+.ambient-tile {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.5) saturate(0.7) blur(0.8px);
+  transform: scale(1.02);
 }
 
 /* 半透明暗色叠层 — 整屏覆盖，保证上层白色画布内容清晰可读 */
