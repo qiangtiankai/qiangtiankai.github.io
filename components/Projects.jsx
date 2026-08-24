@@ -1,6 +1,51 @@
 // Projects 精选项目 — 编辑式错落排版 + 点击弹窗
 // 12 个项目，左右交替 + 全宽穿插
 
+// 按文件名前缀匹配 J 盘海报：海报名去掉「海报」后缀后包含项目 title 即对应
+const POSTER_FILES = [
+  '另一个同一个海报.jpg',
+  '向后翻腾三周半海报.png',
+  '喃喃海报.png',
+  '失所的物象 Dislocated Life海报.jpg',
+  '展览Variatione.M.L-X海报.jpg',
+  '工业牧歌 —— 现代性、乡愁与当代回响海报.jpg',
+  '感官媒介与多媒体海报宽145高274.jpg',
+  '梦江水海报.jpg',
+  '海报 (1).jpg',
+  '海报 (10).jpg',
+  '海报 (11).jpg',
+  '海报 (12).jpg',
+  '海报 (13).jpg',
+  '海报 (2).jpg',
+  '海报 (3).jpg',
+  '海报 (4).jpg',
+  '海报 (5).jpg',
+  '海报 (6).jpg',
+  '海报 (7).jpg',
+  '海报 (8).jpg',
+  '海报 (9).jpg',
+  '海报（总.jpg',
+  '猫门美学大赏海报.png',
+  '终版海报.jpg',
+  '跛子日志与革命书海报.png',
+  '镜中我 —— 心理学与当代艺术跨学科展览海报.jpg',
+];
+
+function findPoster(title) {
+  if (!title) return null;
+  const clean = (n) => n.replace(/海报/g, '').replace(/\.[^.]+$/, '').trim();
+  const t = title.trim();
+  // 优先：海报名去「海报」后缀后【包含】项目 title
+  for (const f of POSTER_FILES) {
+    if (clean(f).includes(t)) return 'posters/' + f;
+  }
+  // 回退：项目 title 包含海报名去后缀
+  for (const f of POSTER_FILES) {
+    if (t.includes(clean(f)) && clean(f).length > 1) return 'posters/' + f;
+  }
+  return null;
+}
+
 function Projects({ onProjectClick }) {
   const projects = [
     {
@@ -187,18 +232,22 @@ function Projects({ onProjectClick }) {
         </div>
 
         <div className="projects-feed">
-          {projects.map((p, i) => (
+          {projects.map((p, i) => {
+            const poster = findPoster(p.title);
+            return (
             <article
               className={`project-item ${p.layout} reveal reveal-delay-${(i % 3) + 1}`}
               key={p.num}
               onClick={() => onProjectClick && onProjectClick(p)}
               style={{ cursor: 'pointer' }}
             >
-              <div
-                className="project-bg"
-                aria-hidden="true"
-                style={{ backgroundImage: `url(${p.image})` }}
-              />
+              {poster && (
+                <div
+                  className="project-bg"
+                  aria-hidden="true"
+                  style={{ backgroundImage: `url("${poster}")` }}
+                />
+              )}
               <div className="project-image-wrap">
                 <img src={p.image} alt={p.title} loading="lazy" />
                 <div className="frame"></div>
@@ -229,7 +278,8 @@ function Projects({ onProjectClick }) {
                 </div>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
