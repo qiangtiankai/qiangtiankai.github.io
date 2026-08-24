@@ -194,6 +194,11 @@ function Projects({ onProjectClick }) {
               onClick={() => onProjectClick && onProjectClick(p)}
               style={{ cursor: 'pointer' }}
             >
+              <div
+                className="project-bg"
+                aria-hidden="true"
+                style={{ backgroundImage: `url(${p.image})` }}
+              />
               <div className="project-image-wrap">
                 <img src={p.image} alt={p.title} loading="lazy" />
                 <div className="frame"></div>

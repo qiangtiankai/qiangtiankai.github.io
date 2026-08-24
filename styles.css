@@ -134,12 +134,26 @@ body::before {
   overflow: hidden;
 }
 
-/* 透明中间列 — 让白色画布背后的玻璃透出来 */
+/* 中间列 — 半透明海报带：低亮度重复海报纹理，隐约可见 */
 .ambient-collage::before {
   content: '';
   grid-column: 2;
   grid-row: 1 / -1;
-  background: transparent;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 0
+    ),
+    url(posters/海报 (1).jpg),
+    url(posters/终版海报.jpg),
+    url(posters/梦江水海报.jpg);
+  background-size: 100% 33vh, 100% 33vh, 100% 33vh;
+  background-position: top left, center, bottom right;
+  background-repeat: repeat-y, repeat-y, repeat-y;
+  background-blend-mode: overlay;
+  filter: brightness(0.5) saturate(0.6) blur(2px);
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -1026,6 +1040,31 @@ button {
   grid-template-columns: 1fr;
   gap: 28px;
   position: relative;
+}
+
+/* 每个项目背后的半透明海报层 */
+.project-bg {
+  position: absolute;
+  inset: -40px -24px;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.5) saturate(0.7) blur(8px);
+  opacity: 0.28;
+  border-radius: 18px;
+  pointer-events: none;
+  transition: opacity 0.6s var(--ease-out), filter 0.6s var(--ease-out);
+}
+
+.project-item:hover .project-bg {
+  opacity: 0.42;
+  filter: brightness(0.6) saturate(0.85) blur(6px);
+}
+
+.project-item > *:not(.project-bg) {
+  position: relative;
+  z-index: 1;
 }
 
 .project-item.left {
