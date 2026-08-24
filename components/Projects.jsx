@@ -29,13 +29,25 @@ const POSTER_FILES = [
   '终版海报.jpg',
   '跛子日志与革命书海报.png',
   '镜中我 —— 心理学与当代艺术跨学科展览海报.jpg',
+  '生生之谓易终版海报.jpg',
+  '让我们彼此印证海报（总.jpg',
 ];
+
+// 手动精确映射 — 项目 title → 海报文件名
+const TITLE_POSTER_MAP = {
+  '生生之谓易': '生生之谓易终版海报.jpg',
+  '猫门美学大赏': '猫门美学大赏海报.png',
+  '跛子日志与革命书': '跛子日志与革命书海报.png',
+  '让我们彼此印证': '让我们彼此印证海报（总.jpg',
+};
 
 function findPoster(title) {
   if (!title) return null;
+  // 优先：手动精确映射
+  if (TITLE_POSTER_MAP[title]) return 'posters/' + TITLE_POSTER_MAP[title];
   const clean = (n) => n.replace(/海报/g, '').replace(/\.[^.]+$/, '').trim();
   const t = title.trim();
-  // 优先：海报名去「海报」后缀后【包含】项目 title
+  // 兜底：海报名去「海报」后缀后包含项目 title
   for (const f of POSTER_FILES) {
     if (clean(f).includes(t)) return 'posters/' + f;
   }
