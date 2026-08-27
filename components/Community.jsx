@@ -17,6 +17,7 @@ function Community() {
     {
       title: '小王子·一人一故事剧场',
       desc: '观众讲述 · 即兴演绎',
+      link: 'https://mp.weixin.qq.com/s/-N1ZiEyy9JrVbrbMlyu5UQ',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
@@ -26,7 +27,7 @@ function Community() {
     {
       title: '绘画课',
       desc: '面向社区的持续绘画体验',
-      link: 'https://mp.weixin.qq.com/s/s2GaMTpgzp935IWYhkNGLAN1ZiEyy9JrVbrbMlyu5UQ',
+      link: 'https://mp.weixin.qq.com/s/s2GaMTpgzp935IWYhkNGLA',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 19l7-7 3 3-7 7-3-3z" />
