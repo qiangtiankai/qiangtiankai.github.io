@@ -131,7 +131,7 @@ function Community() {
 
         <div className="community-cta reveal reveal-delay-4">
           <a
-            href="https://mp.weixin.qq.com/s/-N1ZiEyy9JrVbrbMlyu5UQ"
+            href="https://mp.weixin.qq.com/s/KcJZYYyF1ro-Os0mz0sZ9w"
             target="_blank"
             rel="noopener noreferrer"
             className="community-btn"
