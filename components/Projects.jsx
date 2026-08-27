@@ -99,13 +99,13 @@ function Projects({ onProjectClick }) {
       desc: '装置、行为与雕塑艺术项目，灵感源自材料属性与公共议题，在身体与材料的张力中完成一次自由的翻腾。',
       tags: ['装置', '行为', '雕塑'],
       layout: 'left',
-      articleUrl: null,
+      articleUrl: 'https://mp.weixin.qq.com/s/62f0MDlt7c6_fdpJm3p7SQ',
       gallery: null,
     },
     {
       plate: 'PLATE 04',
       num: '04',
-      title: 'Variation e.M.',
+      title: '乌多·杰斯克 Udo Dziersk 个展  Variation e.M. I -X  A B C D',
       titleEn: '',
       artist: '乌多·杰斯克 Udo Dziersk 个展',
       year: '2025.9',
@@ -113,7 +113,7 @@ function Projects({ onProjectClick }) {
       desc: '德国杜塞尔多夫艺术学院教授个展，学术顾问：贺丹、何军。跨文化视野下的当代绘画实验。',
       tags: ['个展', '绘画', '国际交流'],
       layout: 'wide',
-      articleUrl: null,
+      articleUrl: 'https://mp.weixin.qq.com/s/dYXxLYxOFjnye4TvR41Aew',
       gallery: null,
     },
     {
@@ -127,7 +127,7 @@ function Projects({ onProjectClick }) {
       desc: '围绕城市与社区议题展开十三种研究，在对话与分享中建立人与人之间的信任与联结。',
       tags: ['社区艺术', '系列展', '公共参与'],
       layout: 'right',
-      articleUrl: null,
+      articleUrl: 'https://mp.weixin.qq.com/s/CeuimWadYqm3yI4PL2byoA',
       gallery: null,
     },
     {
@@ -141,7 +141,7 @@ function Projects({ onProjectClick }) {
       desc: '以「气」为母题的跨媒介个展，红棕主视觉与现场绘画并置，在独立空间中探索本土绘画语言的当代表达。',
       tags: ['个展', '绘画', '跨媒介'],
       layout: 'left',
-      articleUrl: null,
+      articleUrl: 'https://mp.weixin.qq.com/s/rbVRcwEUioznbM4DxBBvAw',
       gallery: null,
     },
     {
@@ -169,7 +169,7 @@ function Projects({ onProjectClick }) {
       desc: '以猫咪为主题的趣味展览，以轻松的姿态探索日常生活中的审美趣味。',
       tags: ['群展', '青年艺术家', '日常美学'],
       layout: 'left',
-      articleUrl: null,
+      articleUrl: 'https://mp.weixin.qq.com/s/0fYrdqV811GIBIScl8qFjg',
       gallery: null,
     },
     {
@@ -183,7 +183,7 @@ function Projects({ onProjectClick }) {
       desc: '以艺术活动回应联合国世界儿童日，为城市儿童提供创造性表达与公共参与的空间。',
       tags: ['公共艺术', '教育', '国际合作'],
       layout: 'wide',
-      articleUrl: null,
+      articleUrl: 'https://mp.weixin.qq.com/s/9N5mEchqb95cU1EeiwmS6g',
       gallery: [
         'https://aka.doubaocdn.com/s/OsJsLRZzK8',
         'https://aka.doubaocdn.com/s/PvSwjzeCE7',
