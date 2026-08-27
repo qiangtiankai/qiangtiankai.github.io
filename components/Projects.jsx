@@ -278,6 +278,20 @@ function Projects({ onProjectClick }) {
       articleUrl: 'https://mp.weixin.qq.com/s/CLUGzuse59qUJXgr2zEpAw',
       gallery: ['posters/zs-2.jpeg', 'posters/zs-3.jpeg', 'posters/zs-4.jpeg'],
     },
+    {
+      plate: 'PLATE 17',
+      num: '17',
+      title: '共治空间',
+      titleEn: 'Co-governance Space',
+      artist: '西安本地艺术实践者发起 · 社区艺术空间',
+      year: '2020 — 至今',
+      image: 'posters/zgkj-cover.jpeg',
+      desc: '共治空间是由几位西安本地的艺术实践者发起，试图与当地居民合作进行的社区艺术空间。我们试图生产具有服务性功能的、另类美学和带有问题意识的艺术实践；同时不定期进行各种交流、放映、出版等活动。以「共治+链接」的工作方式不断链接志同道合者，在充满流动与临时性的城中村社区内重新发掘感性的价值空间。',
+      tags: ['社区艺术', '空间', '西安'],
+      layout: 'wide',
+      articleUrl: 'https://mp.weixin.qq.com/s/39fyn-5BY272l351MaCx7g',
+      gallery: [],
+    },
   ];
 
   return (
