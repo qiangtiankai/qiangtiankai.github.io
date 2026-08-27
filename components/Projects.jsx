@@ -257,7 +257,7 @@ function Projects({ onProjectClick }) {
       titleEn: 'Zoushen (Spacing Out) — 2020 Emerging Artists Recommendation Exhibition II',
       artist: '策展人：吴彦臻 / 强天锴',
       year: '2020',
-      image: 'posters/zs-cover.jpeg',
+      image: 'posters/zs-cover.png',
       desc: '2020当代青年艺术家推荐展第二季，由吴彦臻、强天锴联合策展。以「走神」为题，反转其负面意涵，邀请观者发现放空瞬间的灵感之美。展出六位青年艺术家的三十余件作品，以油画与综合材料绘画为主，呈现当代青年创作的多元思考。',
       tags: ['群展', '青年艺术家', '综合材料'],
       layout: 'left',
