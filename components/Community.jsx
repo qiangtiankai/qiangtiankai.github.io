@@ -7,6 +7,7 @@ function Community() {
     {
       title: '被压迫者剧场 Lumi',
       desc: '社区剧场实践',
+      link: 'https://mp.weixin.qq.com/s/wPrIahu6AsTwVdW1xqWK_w',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 2l2.5 5.5 6 .8-4.5 4.3 1 6-5-2.8-5 2.8 1-6L3.5 8.3l6-.8L12 2z" />
@@ -16,6 +17,7 @@ function Community() {
     {
       title: '小王子·一人一故事剧场',
       desc: '观众讲述 · 即兴演绎',
+      link: 'https://mp.weixin.qq.com/s/06BTymvY8a6Pae1W9Sd_BA',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
@@ -25,6 +27,7 @@ function Community() {
     {
       title: '绘画课',
       desc: '面向社区的持续绘画体验',
+      link: 'https://mp.weixin.qq.com/s/s2GaMTpgzp935IWYhkNGLAN1ZiEyy9JrVbrbMlyu5UQ',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 19l7-7 3 3-7 7-3-3z" />
@@ -37,6 +40,7 @@ function Community() {
     {
       title: '让我们彼此印证',
       desc: '学术研讨会',
+      link: 'https://mp.weixin.qq.com/s/CeuimWadYqm3yI4PL2byoA',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
@@ -96,14 +100,32 @@ function Community() {
         </div>
 
         <div className="community-activities reveal reveal-delay-3">
-          {activities.map((a, i) => (
-            <div className="activity-item" key={i}>
-              <span className="activity-num">0{i + 1}</span>
-              <div className="activity-icon">{a.icon}</div>
-              <h4 className="activity-title">{a.title}</h4>
-              <p className="activity-desc">{a.desc}</p>
-            </div>
-          ))}
+          {activities.map((a, i) => {
+            const inner = (
+              <>
+                <span className="activity-num">0{i + 1}</span>
+                <div className="activity-icon">{a.icon}</div>
+                <h4 className="activity-title">{a.title}</h4>
+                <p className="activity-desc">{a.desc}</p>
+                {a.link && <span className="activity-link">查看文章 ↗</span>}
+              </>
+            );
+            return a.link ? (
+              <a
+                className="activity-item activity-linked"
+                key={i}
+                href={a.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {inner}
+              </a>
+            ) : (
+              <div className="activity-item" key={i}>
+                {inner}
+              </div>
+            );
+          })}
         </div>
 
         <div className="community-cta reveal reveal-delay-4">

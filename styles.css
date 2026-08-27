@@ -1327,6 +1327,37 @@ button {
   right: 24px;
 }
 
+.activity-item.activity-linked {
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.activity-item.activity-linked:hover {
+  background: rgba(232, 236, 242, 0.72);
+}
+
+.activity-item.activity-linked:hover .activity-title {
+  color: var(--accent);
+}
+
+.activity-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  opacity: 0.7;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.activity-item.activity-linked:hover .activity-link {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
 .community-cta {
   margin-top: 60px;
   text-align: center;
