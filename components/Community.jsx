@@ -1,7 +1,7 @@
 // Community 社区艺术与公教模块
 
 function Community() {
-  const bgUrl = 'https://aka.doubaocdn.com/s/TFo2C3fSEM';
+  const bgUrl = 'images/community-bg.jpg';
 
   const activities = [
     {

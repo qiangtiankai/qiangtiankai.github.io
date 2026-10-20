@@ -1,7 +1,7 @@
 // About 关于模块
 
 function About() {
-  const portraitUrl = 'https://aka.doubaocdn.com/s/URo4TefgLq';
+  const portraitUrl = 'images/portrait.jpg';
 
   const services = ['策展合作', '展览提案', '品牌联名', '场地活动'];
 

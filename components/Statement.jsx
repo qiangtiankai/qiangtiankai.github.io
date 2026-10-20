@@ -1,7 +1,7 @@
 // Statement 策展理念模块
 
 function Statement() {
-  const bgUrl = 'https://aka.doubaocdn.com/s/HQdGBpPMY6';
+  const bgUrl = 'images/statement-bg.jpg';
 
   return (
     <section id="statement" className="statement">

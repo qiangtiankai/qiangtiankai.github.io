@@ -1,7 +1,7 @@
 // Hero 全屏首页 — 封面大图版本
 
 function Hero() {
-  const coverUrl = 'https://aka.doubaocdn.com/s/k3oRPhVQKi';
+  const coverUrl = 'images/hero.jpg';
 
   return (
     <section id="top" className="hero">
