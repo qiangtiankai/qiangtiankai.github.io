@@ -528,9 +528,9 @@ button {
   z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.28) 0%,
-    rgba(255, 255, 255, 0.4) 40%,
-    rgba(255, 255, 255, 0.62) 100%
+    rgba(255, 255, 255, 0.20) 0%,
+    rgba(255, 255, 255, 0.30) 40%,
+    rgba(255, 255, 255, 0.48) 100%
   );
   backdrop-filter: blur(10px) saturate(115%);
   -webkit-backdrop-filter: blur(10px) saturate(115%);
@@ -562,10 +562,10 @@ button {
   inset: -8% -6%;
   z-index: -1;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.12) 45%, rgba(255, 255, 255, 0.28) 100%),
-    rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0.16) 100%),
+    rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(8px) saturate(135%);
+  -webkit-backdrop-filter: blur(8px) saturate(135%);
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 22px;
   box-shadow:
@@ -607,6 +607,7 @@ button {
   line-height: 1.02;
   letter-spacing: -0.02em;
   color: var(--text-1);
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.65), 0 0 3px rgba(255, 255, 255, 0.5);
   margin-bottom: 36px;
   opacity: 0;
   animation: fadeUp 1.4s var(--ease-out) 0.5s forwards;
